@@ -2,37 +2,60 @@
     
 <head>
     <title>Jirayu CPS</title>
-    <style> 
+    <link rel="stylesheet" type="text/css" href="Bossstyle.css"/>
+    
+    <script src="JavaBoss.js" type="text/javascript" /script></script>
+    <script src="jquery-3.2.1.min.js" type="text/javascript" /script></script>
+    
+    <style>
+        .textred {
+            color: darkcyan
+        }
+        .textblue {
+            color: darkgoldenrod
+        }
         h2{
-            color:darkred;
-            font-family:cursive
+            color: darkblue
+        }
+        
+        .pinkborder{
+            border: pink 5px dashed;
+        }
+        
+        #cieh3{
+            color: aquamarine;
         }
     </style>
     
     <script>
-        var i = 0 
-        function myAlert(){
-            alert("Go to Facebook."+ i);
-            i++;
-            
+        var i = 0;
+        function changeName(){
+            $("h1,h2,h3,span,div,a").text("Jirayu" + i);
+            i++
         }
     </script>
+    
 </head>
-    
-    
+       
 <body>
     
     <span style='color: skyblue' style='font-size: 100'> B </span><span style='color: blue' style='font-size: 100'> O </span><span style='color: purple' style='font-size: 100'> S </span><span style='color: black' style='font-size: 100'> S </span>
     
-    <h2>2.1</h2>
-    <h2>2.2</h2>
-    <h2>2.3</h2>
+    <h2 onclick="myAlert();">2.1</h2>
+    <h2 class="textred pinkborder" >2.2</h2>
+    <h2 class="textblue">2.3</h2>
+    
+    <h2 id="cieh3">2.4</h2>
+    <script>
+        document.getElementById("cieh3").innerText="Jirayu";
+    </script>
+    <h4 onclick="changeName()">Click me</h4>
     
     <div onclick="alert('This link will go to website owner Facebook.');"><a target="_blank" href="https://www.facebook.com/jirayu.promsongwong">
         <img src="giphy.gif" width="50%" /></a></div>
     
-    <div onclick="myAlert();"><a target="_blank" href="https://www.facebook.com/jirayu.promsongwong">
-        <img src="giphy.gif" width="50%" /></a></div>
+    <a target="_blank" href="https://www.facebook.com/jirayu.promsongwong">
+        <img src="giphy.gif" width="50%" /></a>
     
     <hr/>
     <div><iframe width="560" height="315" src="https://www.youtube.com/embed/rjINNeC0DFA" frameborder="0" allowfullscreen></iframe> </div>
