@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script src="jquery-3.2.1.min.js" type="text/javascript" /script></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+        
+    </head>
+    
+    
+    <body>
+        MQTT data is <span id="B1">0</span>
+        <hr/>
+        Truelab's temperature is <span id="temp">0</span> °C.
+        
+        <script>
+            var mqttClient = new Paho.MQTT.Client("iot.eclipse.org", 443, "Jirayu-59011599");
+            
+            mqttClient.onMessageArrived = onMessageAlert;
+            
+            mqttClient.connect({ onSuccess: onConnect, useSSL : true});
+            
+            function onConnect(){
+                //alert("Connected.");
+                mqttClient.subscribe("kmitl/cie/#");
+            }
+            
+            function onMessageAlert(msg){
+                //console.log(msg.payloadString);
+                
+                if(msg.destinationName == "kmitl/cie/random/x1"){
+                    $("#B1").text(msg.payloadString);
+                }
+                if(msg.destinationName == "kmitl/cie/g0/temp"){
+                    $("#temp").text(msg.payloadString)
+                }
+            }
+        </script>
+        
+    </body>
+</html>
