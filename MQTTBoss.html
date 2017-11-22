@@ -91,7 +91,7 @@
             
             function onMessageAlert(msg){
                 //console.log(msg.payloadString);
-                if(msg.destinationName == "cie/g1/Boss"){
+                if(msg.destinationName == "kmitl/cie/g0/home"){
                     $("#temp").text(msg.payloadString)
                 }
             }
@@ -99,7 +99,7 @@
             function controlFan(){
                 var fake = Math.floor(20+Math.random()*10);
                 message = new Paho.MQTT.Message("1");
-                message.destinationName = "cie/g1/Earth";
+                message.destinationName = "kmitl/cie/g10/fan";
                 mqttClient.send(message);
             }
         </script>       
